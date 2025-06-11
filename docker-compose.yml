@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: artisign-fastapi-backend
+    ports:
+      - "3000:3000" # <<< UBAH PORTS HOST KE 3000 dan CONTAINER KE 3000
+    volumes:
+      - ./backend/models:/app/models
+      - artisign_uploads:/app/uploads
+      - artisign_temp:/app/temp
+    environment:
+      - NODE_ENV=production
+      - PORT=3000 # <<< UBAH PORT LINGKUNGAN APLIKASI KE 3000
+    restart: unless-stopped
+
+volumes:
+  artisign_uploads:
+  artisign_temp:
