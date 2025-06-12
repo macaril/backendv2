@@ -9,5 +9,4 @@ python-jose==3.3.0
 websockets==12.0
 Pillow
 aiofiles
-keras==3.3.3
 gunicorn==22.0.0
